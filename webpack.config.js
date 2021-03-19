@@ -5,8 +5,8 @@ module.exports = {
     entry: resolve(__dirname, 'src/index.js'),
     output: {
         path: resolve(__dirname, 'dist'),
-        filename: 'simple-scrollspy.js',
-        library: 'scrollSpy'
+        filename: 'simple-sumnumber.js',
+        library: 'sumnumber'
     },
     plugins: [
         new UglifyJsPlugin({
