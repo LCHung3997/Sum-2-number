@@ -1,6 +1,6 @@
 {
   "name": "sum-number-two",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "sum 2 number",
   "main": "src/index.js",
   "scripts": {
