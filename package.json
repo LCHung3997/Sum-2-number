@@ -1,0 +1,29 @@
+{
+  "name": "Sum-2-number",
+  "version": "1.0.0",
+  "description": "sum 2 number",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "node_modules/webpack/bin/webpack.js --mode production --watch --progress --hide-modules",
+    "build": "node_modules/webpack/bin/webpack.js --mode production --progress --hide-modules"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LCHung3997/Sum-2-number.git"
+  },
+  "keywords": [
+    "sum",
+    "Javascript"
+  ],
+  "author": "LeHung <lchung3997@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LeeHung97/NewPackage/issues"
+  },
+  "homepage": "https://github.com/LCHung3997/Sum-2-number#readme",
+  "devDependencies": {
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "webpack": "^5.26.3",
+    "webpack-cli": "^4.5.0"
+  }
+}
