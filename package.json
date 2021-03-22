@@ -1,29 +1,19 @@
 {
-  "name": "sum-number-two",
-  "version": "1.1.0",
-  "description": "sum 2 number",
-  "main": "src/index.js",
+  "name": "sumnumbera",
+  "version": "1.0.0",
+  "description": "To change your package name, you change the name property in the package.json file. Here, I changed it to publishing-to-npm.",
+  "main": "index.js",
   "scripts": {
-    "dev": "node_modules/webpack/bin/webpack.js --mode production --watch --progress --hide-modules",
-    "build": "node_modules/webpack/bin/webpack.js --mode production --progress --hide-modules"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/LCHung3997/Sum-2-number.git"
+    "url": "git+https://github.com/LeeHung97/NewPackage.git"
   },
-  "keywords": [
-    "sum",
-    "Javascript"
-  ],
-  "author": "LeHung <lchung3997@gmail.com>",
-  "license": "MIT",
+  "author": "<LCHung3997@gmail.com>",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/LeeHung97/NewPackage/issues"
   },
-  "homepage": "https://github.com/LCHung3997/Sum-2-number#readme",
-  "devDependencies": {
-    "uglifyjs-webpack-plugin": "^2.2.0",
-    "webpack": "^5.26.3",
-    "webpack-cli": "^4.5.0"
-  }
+  "homepage": "https://github.com/LeeHung97/NewPackage#readme"
 }

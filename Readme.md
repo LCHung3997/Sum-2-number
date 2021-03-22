@@ -1,114 +1,68 @@
-#Sum-2-number
+How to publish packages to npm (the way the industry does things)
+20th mar 2019
+It’s simple to publish a package onto npm. There are two steps:
 
-[Sum-2-number](https://kimyvgy.github.io/simple-scrollspy) is a lightweight javascript library without jQuery,
-no dependencies. It is used to make scrollspy effect for your menu, table of contents, etc.
-Only 1.94Kb.
+Create your package.
+Publish the package.
+But publishing packages the way the industry does it? Not so simple. There are more steps. We’ll go through what steps are required, and I’ll show you an easy way to publish and update your package.
 
-This is a [scrollspy demo](https://kimyvgy.github.io/simple-scrollspy/demo) for my menu in the navigation bar.
+Creating your first package
+This section is for you if you haven’t published a package to npm before. Feel free to skip to the next section if you’ve published one before.
 
-## Install
-1. Via NPM:
+To publish your first package to npm, you need to go through these steps:
 
-Install NPM package - https://www.npmjs.com/package/simple-scrollspy:
+First, you need to have an npm account. Create one here if you don’t have one yet.
 
-```npm
-npm install simple-scrollspy
-```
+Second, you need to login to your npm account through the command line. (You need to have Node and npm installed on your system before you perform this step. Install them here).
 
-2. The other way, you also can inject `simple-scrollspy.min.js` file into your HTML code:
+To sign in, you use npm login.
 
-```html
-<script src="/path/to/dist/simple-scrollspy.min.js"></script>
-```
+npm login
+You’ll be prompted to enter your username, password, and email address.
 
-## Usages
+Logging into npm via the command line
+Third, you need to create a package. To do so, create a folder somewhere on your computer and navigate to it. The command line version is:
 
-Easy for using, syntax just like this:
+# Creating a folder named how-to-publish-to-npm
+mkdir how-to-publish-to-npm
 
-```html
-scrollSpy(menuElement, options)
-```
+# Navigating into the folder
+cd how-to-publish-to-npm
+Next, you want to begin the project with the npm init command.
 
-This little plugin will add `active` class into your existing menu item when you scroll your page to a matched section by ID.
-If you are giving it a try, make sure that you:
-1. Added CSS for `active` class in your menu item. Because, this plugin do NOT include CSS.
-2. Added ID for your sections.
-    Example: `<section id="first-section">...</section>`
-3. Added an attribute which is an section ID into your menu items. Default is `href`.
-    Example: `"href"="#first-section"`.
-You also replace `href` with the other name by `hrefAttribute` in `options`. 
+npm init
+This command runs you through a few questions and creates a package.json file for you at the end. This package.json file contains the bare necessities you need to publish your project. (Feel free to skip questions that don’t make sense).
 
-### Arguments
+Image of the npm init command
+The final step is to publish your package with the npm publish command.
 
-1. The `menuElement` is query selector to your menu. It is `String` or `HTMLElement` instance.
-2. The `options` is optional. It is type of `Object` which contains properties below:
+npm publish
+If the package already exists on npm (because your package has the same name as another package on npm), you won’t be able to publish it. You’ll get an error.
 
-| Name               | Type     | Default       | Description                        |
-|--------------------|:---------|:--------------|:-----------------------------------|
-| `sectionClass`     | String   | `.scrollspy`  | Query selector to your sections    |
-| `menuActiveTarget` | String   | `li > a`      | Element will be added active class |
-| `offset`           | Number   | 0             | Offset number                      |
-| `hrefAttribute`    | String   | `href`        | The menu item's attribute name which contains section ID |
-| `activeClass`      | String   | `active`      | Active class name will be added into `menuActiveTarget`|
 
-### ES6 example
+You’ll need to change your package name.
 
-```js
-import scrollSpy from 'simple-scrollspy'
+To change your package name, you change the name property in the package.json file. Here, I changed it to publishing-to-npm.
 
-const options = {
-    sectionClass: '.scrollspy',     // Query selector to your sections
-    menuActiveTarget: '.menu-item', // Query selector to your elements that will be added `active` class
-    offset: 100                     // Menu item will active before scroll to a matched section 100px
-}
+(You can check for naming collisions by doing a search on npm, or through the npm search command).
 
-// init:
-scrollSpy(document.getElementById('main-menu'), options)
+Changed name property to publishing-to-npm
+It’s also a good idea to update the folder name as well for consistency. Here’s the command line equivalent.
 
-// or shorter:
-scrollSpy('#main-menu', options)
-```
+# Command to change folder names by moving everything
+mv how-to-publish-to-npm publishing-to-npm
+Try the publish command again. You should get a success message now.
 
-### Inject static file
+Successfully published to npm
+What to do if every name you came up with is taken up already
+This is a common problem since many people create packages on npm. It’s difficult to get the package name you desire sometimes. (It’s like how I can never find a good .com domain).
 
-```html
-<script src="/path/to/dist/simple-scrollspy.min.js"></script>
-<script>
-    window.onload = function () {
-        scrollSpy('#main-menu', {
-            sectionClass: '.scrollspy',
-            menuActiveTarget: '.menu-item',
-            offset: 100
-        })
-    }
-</script>
-```
+To combat against this problem, npm lets you publish to a scope. This means you can publish the package under your own username (or npm organization), so you’re free from naming problems.
 
-## Development
+To publish to a scope, you can either:
 
-```bash
-$ yarn install
-$ yarn dev
-```
+Change the name to @username/package-name manually in package.json
+Run npm init --scope=username instead of npm init
+If your repository has a scope, you need to adjust the publish command slightly:
 
-## Build
-```bash
-$ yarn build
-```
-or:
-```npm
-$ npm run build
-```
-The `dist` folder is automatically created and include file `simple-scrollspy.min.js`
-
-## Note
-- Let feel free to make a pull request if you can. Or just create the issues when you got it.
-- Don't forget give it a star if you feels it is really helpfull for us. It may save somebody in someday.
-
-## Helpful links
-- [Documentation](https://kimyvgy.github.io/simple-scrollspy)
-- [Example](https://kimyvgy.github.io/simple-scrollspy/demo)
-- [See on NPM package](https://www.npmjs.com/package/simple-scrollspy)
-
-## Licence
-[MIT](./LICENSE)
+npm publish --access public
